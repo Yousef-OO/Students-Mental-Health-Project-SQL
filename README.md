@@ -13,3 +13,5 @@ I initially explored the table to make sure I accuratly chose the right variable
 1. 'inter_dom': to filter out the domestic students and focus on international ones.
 2. 'stay': the length of stay in years.
 3. 'todep', 'tosc', 'toas': Quantitative test scores used for calculating depression, social connectedness, and acculturative stress scores respectively.
+
+
