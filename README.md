@@ -15,3 +15,32 @@ I initially explored the table to make sure I accuratly chose the right variable
 3. 'todep', 'tosc', 'toas': Quantitative test scores used for calculating depression, social connectedness, and acculturative stress scores respectively.
 
 
+A description of the columns.
+
+| Field Name    | Description                                      |
+| ------------- | ------------------------------------------------ |
+| `inter_dom`     | Types of students (international or domestic)   |
+| `japanese_cate` | Japanese language proficiency                    |
+| `english_cate`  | English language proficiency                     |
+| `academic`      | Current academic level (undergraduate or graduate) |
+| `age`           | Current age of student                           |
+| `stay`          | Current length of stay in years                  |
+| `todep`         | Total score of depression (PHQ-9 test)           |
+| `tosc`          | Total score of social connectedness (SCS test)   |
+| `toas`          | Total score of acculturative stress (ASISS test) |
+
+
+
+SQL Query: 
+
+SELECT 	   stay,
+	   COUNT(*) AS count_int, 
+	   ROUND(AVG(todep), 2) AS average_phq,
+	   ROUND(AVG(tosc), 2) AS average_scs,
+	   ROUND(AVG(toas), 2) AS average_as
+FROM students
+WHERE (inter_dom = 'Inter') AND (stay IS NOT NULL)
+GROUP BY stay
+ORDER BY stay DESC;
+
+
